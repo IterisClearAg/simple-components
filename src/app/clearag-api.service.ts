@@ -10,9 +10,6 @@ import { apiCredentials } from '../environments/config';
 })
 export class ClearagApiService {
 
-
-  //location: string; = '47.8645,-97.1373';
-
   currentConditionUrl = 'https://ag.us.clearapis.com/v1.1/currentconditions';
   hourlyForecastUrl = 'https://ag.us.clearapis.com/v1.1/forecast/hourly';
 
@@ -25,6 +22,7 @@ export class ClearagApiService {
 
 
   public fetchCurrentConditions(location: string): Observable<any> {
+    console.log(location);
     return this.http.get<any>(`${this.currentConditionUrl}/?app_id=${apiCredentials.CA_Account_appId}&app_key=${apiCredentials.CA_Account_appKey}&location=${location}`);
   } 
 
