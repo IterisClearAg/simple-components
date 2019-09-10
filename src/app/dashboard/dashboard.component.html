@@ -1,0 +1,17 @@
+<h1>Current Conditions</h1>
+<div *ngIf="conditions as result else loading">
+    <div>Air Temp: {{result.air_temp.value}} {{result.air_temp.unit}}</div>
+    <div>cloud cover: {{result.cloud_cover.value}} {{result.cloud_cover.unit}}</div>
+    <div>dew point: {{result.dew_point.value}} {{result.dew_point.unit}}</div>
+    <div>ice_acc_last_hour: {{result.ice_acc_last_hour.value}} {{result.ice_acc_last_hour.unit}}</div>
+    <div>liquid_acc_last_hour: {{result.liquid_acc_last_hour.value}} {{result.liquid_acc_last_hour.unit}}</div>
+    <div>long_wave_radiation: {{result.long_wave_radiation.value}} {{result.long_wave_radiation.unit}}</div>
+    <div>precip_acc_last_hour: {{result.precip_acc_last_hour.value}} {{result.precip_acc_last_hour.unit}}</div>
+    <div>relative_humidity: {{result.relative_humidity.value}} {{result.relative_humidity.unit}}</div>
+    <div>wind_direction: {{result.wind_direction.value}} {{result.wind_direction.unit}}</div>
+    <div>wind_speed: {{result.wind_speed.value}} {{result.wind_speed.unit}}</div>
+</div>
+
+<ng-template #loading>
+Loading data...
+</ng-template>
