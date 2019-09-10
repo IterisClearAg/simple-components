@@ -12,13 +12,15 @@ export class DashboardComponent implements OnInit {
 
   conditions ; 
 
+  location: '47.8645,-97.1373';
+
   constructor(private ClearagApi: ClearagApiService) { }
 
   ngOnInit() {
 
     // No error handling =(
       
-    this.ClearagApi.fetchCurrentConditions().subscribe((res : any)=>{
+    this.ClearagApi.fetchCurrentConditions(this.location).subscribe((res : any)=>{
       const response = Object.assign({}, res);
       const keys = Object.keys(response);
       let x = response[keys[0]].current_conditions;

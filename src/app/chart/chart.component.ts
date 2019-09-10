@@ -20,6 +20,9 @@ noData(Highcharts);
 export class ChartComponent implements OnInit {
 
   data; 
+
+  location: '47.8645,-97.1373';
+
   seriesA = {
     name: 'Temperature',
     data: []
@@ -53,7 +56,7 @@ export class ChartComponent implements OnInit {
 
   ngOnInit(){
 
-    this.ClearagApi.fetchHourlyForecast().subscribe((res : any)=>{
+    this.ClearagApi.fetchHourlyForecast(this.location).subscribe((res : any)=>{
       const response = Object.assign({}, res);
       const keys = Object.keys(response);
       let x = response[keys[0]];
