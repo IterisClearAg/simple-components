@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from  '@angular/common/http';
 import { ChartComponent } from './chart/chart.component';
+import { GrowthChartComponent } from './growth-chart/growth-chart.component';
 
 
 
@@ -14,7 +15,8 @@ import { ChartComponent } from './chart/chart.component';
   declarations: [
     AppComponent,
     DashboardComponent,
-    ChartComponent
+    ChartComponent,
+    GrowthChartComponent
   ],
   imports: [
     BrowserModule,

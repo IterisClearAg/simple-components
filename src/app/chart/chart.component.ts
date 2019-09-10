@@ -50,14 +50,13 @@ export class ChartComponent implements OnInit {
     },
     series: [this.seriesA, this.seriesB]
   }
+  
   constructor(private ClearagApi: ClearagApiService) { }
 
   ngOnInit(){
 
     this.ClearagApi.fetchHourlyForecast('47.8645,-97.1373').subscribe((res : any)=>{
-      const response = Object.assign({}, res);
-      const keys = Object.keys(response);
-      let x = response[keys[0]];
+
       this.data = this.ClearagApi.convertToWeatherModel(res);
 
       this.data.data.map( d => {
