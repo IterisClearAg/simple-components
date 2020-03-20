@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import {ClearagApiService} from '../clearag-api.service';
+import { apiCredentials } from '../../environments/config';
 
 declare var require: any;
 let Boost = require('highcharts/modules/boost');
@@ -77,14 +78,11 @@ export class GrowthChartComponent implements OnInit {
 
   ngOnInit() {
 
-    this.ClearagApi.fetchCornGrowth('24e4e4f1-04c5-48a2-9ffe-6d8a7c9c0e1f').subscribe((res : any)=>{
-      const response = Object.assign({}, res);
+    this.ClearagApi.fetchCornGrowth(apiCredentials.CA_Growth_UUID).subscribe((res : any)=>{
 
       if(!res.data) { return [] }
 
       this.data = this.ClearagApi.convertGrowthModel(res);
-
-      console.log(this.data);
 
       this.data.data.map( d => {
         const date = new Date(d.date);

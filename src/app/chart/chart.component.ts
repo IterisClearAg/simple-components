@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import {ClearagApiService} from '../clearag-api.service';
+import { apiCredentials } from '../../environments/config';
+
 
 declare var require: any;
 let Boost = require('highcharts/modules/boost');
@@ -55,7 +57,7 @@ export class ChartComponent implements OnInit {
 
   ngOnInit(){
 
-    this.ClearagApi.fetchHourlyForecast('47.8645,-97.1373').subscribe((res : any)=>{
+    this.ClearagApi.fetchHourlyForecast(apiCredentials.latitude, apiCredentials.longitude).subscribe((res : any)=>{
 
       this.data = this.ClearagApi.convertToWeatherModel(res);
 

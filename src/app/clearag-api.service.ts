@@ -17,12 +17,14 @@ export class ClearagApiService {
 
   constructor( private  http:  HttpClient) { }
 
-  public fetchHourlyForecast(location: string) {
+  public fetchHourlyForecast(latitude:number, longitude:number) {
+    const location = latitude + ',' + longitude;
     return this.http.get<any>(`${this.hourlyForecastUrl}/?app_id=${apiCredentials.CA_Account_appId}&app_key=${apiCredentials.CA_Account_appKey}&location=${location}&start=0&end=240`);
   }
 
 
-  public fetchCurrentConditions(location: string): Observable<any> {
+  public fetchCurrentConditions(latitude:number, longitude:number): Observable<any> {
+    const location = latitude + ',' + longitude;
     return this.http.get<any>(`${this.currentConditionUrl}/?app_id=${apiCredentials.CA_Account_appId}&app_key=${apiCredentials.CA_Account_appKey}&location=${location}`);
   } 
 
